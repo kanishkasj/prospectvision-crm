@@ -1,7 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/widget.html"
-  status = 200
-
-[functions]
-  directory = "netlify/functions"

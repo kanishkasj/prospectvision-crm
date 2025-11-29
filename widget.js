@@ -1,7 +1,10 @@
 // HubSpot CRM Widget for SalesIQ Integration
 class HubSpotCRMWidget {
     constructor() {
-        this.baseURL = window.location.origin; // Use current domain for API calls
+        // Use Netlify functions for API calls
+        this.baseURL = window.location.hostname.includes('netlify.app') || window.location.hostname.includes('localhost')
+            ? '/.netlify/functions/hubspot-api'
+            : '/api';
         this.currentContact = null;
         this.visitorInfo = null;
         this.chatContext = null;

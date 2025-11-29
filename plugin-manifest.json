@@ -1,0 +1,54 @@
+{
+  "manifest_version": "1.0",
+  "name": "HubSpot CRM Integration",
+  "version": "3.0.0",
+  "description": "Advanced HubSpot CRM Integration with 13+ enterprise features for seamless visitor management during live chats",
+  "author": "Karthik",
+  "category": "CRM Integration",
+  
+  "service": {
+    "production_url": "https://your-hubspot-salesiq-widget.herokuapp.com",
+    "development_url": "https://localhost:3000"
+  },
+  
+  "widgets": [
+    {
+      "name": "HubSpot CRM Manager",
+      "id": "hubspot_crm_widget",
+      "description": "Display and manage HubSpot CRM records during chat sessions",
+      "icon": "https://cdn2.hubspot.net/hubfs/53/assets/hubspot.com/style-guide/brand-guidelines/hubspot-logo-icon.png",
+      "location": "chat.operator",
+      "type": "iframe",
+      "url": "/widget",
+      "width": "350px",
+      "height": "500px",
+      "resizable": true
+    }
+  ],
+  
+  "permissions": [
+    "visitor.info",
+    "chat.messages",
+    "operator.actions",
+    "external.api"
+  ],
+  
+  "webhooks": {
+    "chat_started": "/webhook/chat-started",
+    "visitor_info_updated": "/webhook/visitor-updated",
+    "chat_ended": "/webhook/chat-ended"
+  },
+  
+  "settings": {
+    "hubspot_api_key": {
+      "type": "string",
+      "required": true,
+      "description": "HubSpot Private App Access Token"
+    },
+    "auto_search": {
+      "type": "boolean",
+      "default": true,
+      "description": "Automatically search CRM when visitor email is detected"
+    }
+  }
+}
